@@ -40,7 +40,7 @@
 
 - [ ] graphql
 
-- [ ] static-site-generators
+- [ ] static-site-generators (jekyll)
 
 - [ ] mobile-applications
 

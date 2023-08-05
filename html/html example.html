@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example Document</title>
+
+    <!-- below are not necessary -->
+
+    <!--the most useful pragma directive-->
+    <!-- Disable unsafe inline/eval, only allow loading of resources (images, fonts, scripts, etc.) over https: -->
+    <!-- <meta http-equiv="content-security-policy" content="default-src https:" /> -->
+
+    <!-- Pre-existing site that uses too much inline code to fix but wants to ensure resources are loaded only over HTTPS and to disable plugins -->
+    <meta http-equiv="content-security-policy"
+        content="default-src https: 'unsafe-eval' 'unsafe-inline' 'self' blob:; object-src 'none'; " />
+
+    <!-- named meta tags -->
+    <meta name="description" content="this is an example document for html learning" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+
+    <!-- open graph protocol -->
+    <!-- a facebook media card -->
+    <!-- <meta property="og:title" content="Machine Learning Workshop" />
+    <meta property="og:description"
+        content="School for Machines Who Can't Learn Good and Want to Do Other Stuff Good Too" />
+    <meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" />
+    <meta property="og:image:alt"
+        content="Black and white line drawing of refrigerator, french door refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" /> -->
+
+    <!-- provide the os with a short name that doesn't take up much room on a small device's home screen -->
+    <!-- <meta name="application-name" content="html" /> -->
+
+    <!-- The most common use for a web application manifest is to provide information that the browser needs to install a progressive web app (PWA) on a device -->
+    <!-- <link rel="manifest" href="/mlw.webmanifest" /> -->
+
+    <link rel="stylesheet" href="../css/css example.css">
+
+    <!-- <style>
+        @import "style.css" layer(firstLayer);
+    </style> -->
+
+    <base target="_top" href="./html example.html" />
+
+    <link rel="icon" href="../assets/Internet.svg" type="image/svg+xml">
+
+    <!-- <link rel="apple-touch-startup-image" href="icons/ios-portrait.png" media="orientation: portrait" /> -->
+    <!-- <link rel="apple-touch-startup-image" href="icons/ios-landscape.png" media="orientation: landscape" /> -->
+
+    <!-- Alternate representations of the current document -->
+    <!-- <link rel="alternate" type="application/x-pdf" href="../assets/html.pdf" /> -->
+    <!-- <link rel="alternate" href="/cn/simplified_chinese_version.html" hreflang="zh-Hans" /> -->
+    <!-- Preferred URL for the current document -->
+    <!-- <link rel="canonical" href="./html example.html" /> -->
+</head>
+
+<body>
+
+    <!-- <style contenteditable style="display: block; font-family: monospace; white-space: pre;">
+        head {
+            display: block;
+        }
+
+        head * {
+            display: none;
+        }
+
+        :root {
+            --theme-color: #f68c1b;
+        }
+    </style> -->
+
+    <a href="#main" class="skip-link button">Skip to main</a>
+
+    <header>
+        <nav aria-label="breadcrumbs">
+            <ol role="list">
+                <li>
+                    <a href="/learn">Home</a>
+                </li>
+                <li aria-current="page"><a href="#">Learn HTML</a>
+                </li>
+                <li>
+                    <a href="/learn/css">Learn CSS</a>
+                </li>
+                <li>
+                    <a href="/learn/javascript">Learn JS</a>
+                </li>
+            </ol>
+        </nav>
+
+        <ul>
+            <li><a href="signup.html" target="signup">signup</a></li>
+            <li><a href="login.html">login</a></li>
+            <li><a href="/cn/simplified_chinese_version.html" hreflang="zh-Hans" rel="alternate" lang="zh-Hans">中文</a>
+            </li>
+        </ul>
+    </header>
+
+    <main id="main">
+        <article>
+            <h1 id="elements">elements</h1>
+            <pre><code>
+    console.log("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui quis neque blanditiis! Tempore dolorem, corrupti doloremque quidem rem molestias assumenda temporibus ex laudantium, a vel aspernatur fuga aliquam non possimus!");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+    console.log("multiline");
+                </code></pre>
+            <p>
+                use &lt;samp&gt; element to provide sample output from a program
+                type <kbd>PrtSc</kbd> to print screen
+                <del>this is deleted</del>
+                <ins cite="some book" datetime="2023-07-26T11:00">indicate text that has been added, or "inserted"</ins>
+                <s>the content is no longer relevant, but not actually removed from the document</s>
+                <abbr>HTML</abbr>
+            </p>
+            <p>When defining a term that is not an abbreviation or acronym, use the definition &lt;dfn&gt; element</p>
+            <p><dfn id="def-internet">The Internet</dfn> is a global system of interconnected networks that use the
+                Internet Protocol Suite (TCP/IP) to serve billions of users worldwide.</p>
+
+            <ruby>
+                汉 <rp>(</rp>
+                <rt>han</rt>
+                <rp>)</rp>
+                字 <rp>(</rp>
+                <rt>zi</rt>
+                <rp>)</rp>
+            </ruby>
+            <ruby>
+                明 日 <rp>(</rp>
+                <rt>ming ri</rt>
+                <rp>)</rp>
+            </ruby>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+                The ruby parenthesis (&lt;rp&gt;) was included in the spec to contain opening and closing
+                parentheses for browsers that do not support display of &lt;ruby&gt;.
+            </p>
+
+            <p>
+                If <var>a</var> and <var>b</var> are the legs and <var>c</var> is the hypotenuse then
+                <var>a<sup>2</sup></var> + <var>b<sup>2</sup></var> =
+                <var>c<sup>2</sup></var>.
+            </p>
+            <p>
+                <em>emphasize or stress a span of content</em>
+                <mark>identify or highlight text that is somehow relevant</mark>
+                <strong>identifies text as having strong importance</strong>
+                <cite>mark the titles of books, articles, or other creative work, or an abbreviated reference or
+                    citation metadata for such, like a book's ISBN number.</cite>
+            </p>
+            <p>
+                There are three elements that were temporarily deprecated, but have been added back into HTML. They
+                should be used sparingly, if at all:<br />
+                &lt;i&gt; to differentiate inline content from the surrounding text for a specific reason<br />
+                &lt;u&gt; is for content that has non-textual annotation, eg to annotate knowingly misspelled
+                words<br />
+                &lt;b&gt; should only be used when none of the other elements in this section fit the purpose
+            </p>
+            <p>
+                <code>01000011<wbr/>01101111<wbr/>01101101<wbr/>01110000<wbr/>01110010<wbr/>01100101<wbr/>01110011<wbr/>01110011 an 01101001<wbr/>01101101<wbr/>01100001<wbr/>01100111<wbr/>01100101</code>
+                <br /> &lt;wbr&gt; is commonly used to break between words within long URLs. It does not add a hyphen.
+            </p>
+            <h2>frequently asked questions</h2>
+            <details>
+                <summary>question 1</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sint ducimus quam vero, a animi?
+                    Placeat dolorum porro adipisci quidem asperiores, sint eaque officiis, quibusdam eligendi beatae
+                    inventore deserunt praesentium?</p>
+            </details>
+            <details>
+                <summary>question 2</summary>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis soluta ad unde mollitia
+                    repudiandae? Suscipit ipsa debitis non enim cumque saepe autem modi porro tenetur accusamus ab,
+                    laborum reprehenderit ea?</p>
+            </details>
+            <details>
+                <summary>question 3</summary>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam provident ut ex. Deleniti reiciendis
+                    ex culpa expedita. Quasi, necessitatibus? Voluptatum?</p>
+            </details>
+
+        </article>
+
+        <article>
+            <h1 id="media">media</h1>
+            <h2>image</h2>
+            <label for="avatar">A recent photo of yourself:</label>
+            <input type="file" capture="user" accept="image/*" name="avatar" id="avatar">
+            <div id="preview">No content</div>
+            <figure>
+                <img src="../assets/andrew-small-unsplash.jpg" alt="pink gerbera"
+                    srcset="../assets/andrew-small-unsplash-640px.jpg 640w , ../assets/andrew-small-unsplash.jpg 1000w"
+                    sizes="(max-width:800px) 640px 1000px">
+                <figcaption>
+                    Pink gerbera up close, Photo by <a
+                        href="https://unsplash.com/@andsmall?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrew
+                        Small</a> on <a
+                        href="https://unsplash.com/photos/EfhCUc_fjrU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                </figcaption>
+            </figure>
+
+            <div class="floatcontainer">
+                <picture>
+                    <source srcset="../assets/andrew-small-unsplash-crop.jpg" media="(max-width: 800px)" />
+                    <!-- <source srcset="../assets/andrew-small-unsplash" /> -->
+                    <img src="../assets/andrew-small-unsplash.jpg" alt="Pink gerbera up close" />
+                </picture>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illo reiciendis tenetur numquam ratione
+                    minima veniam quod, aspernatur assumenda architecto blanditiis quaerat dignissimos aperiam fugiat
+                    corporis accusantium quisquam eius cupiditate.</p>
+            </div>
+
+            <h2>audio</h2>
+
+            <h2>video</h2>
+            <video controls poster="images/machine.jpg">
+                <source src="videos/machines.webm" type="video/webm">
+                <source src="videos/machines.mp4" type="video/mp4">
+                <source src="videos/machines.ogv" type="video/ogg">
+                <track label="English" kind="subtitles" srclang="en" src="vtt/subtitles-en.vtt" default />
+                <track label="Francais" kind="subtitles" srclang="fr" src="vtt/subtitles-fr.vtt" />
+                <p>Watch <a href="https://youtube.com/link">video on Youtube</a>
+            </video>
+        </article>
+
+        <article>
+            <h1 id="form">form</h1>
+            <h2>info form</h2>
+            <form action="" method="get">
+                <label for="input_name">Your name</label>
+                <input type="text" id="input_name" name="username" required>
+
+                <!-- <label>Your email
+                    <input type="email" name="useremail" required>
+                </label> -->
+
+                <label for="input_email">Your email</label>
+                <input type="email" name="useremail" id="input_email" required>
+
+                <!-- <input type="submit" value="Submit Form"> -->
+                <button type="submit">Submit</button>
+            </form>
+            <h2>message form</h2>
+            <form action="mailto:nowhere@mozilla.org" method="post">
+                <input type="subject" placeholder="subject" required>
+                <button type="submit">Send Msg</button>
+                <textarea name="emailmsg" id="emailmsg" cols=50vw rows="20" placeholder="content here"></textarea>
+            </form>
+
+        </article>
+
+        <article>
+            <h1 id="dialog">dialog</h1>
+            <dialog id="dialog1">
+                <form method="dialog">
+                    <label for="selecttolearn">Select learning topic:</label>
+                    <select name="tolearn" id="selecttolearn">
+                        <option value="">please select...</option>
+                        <optgroup label="HTML">
+                            <option value="elements">elements</option>
+                            <option value="templates">templates</option>
+                        </optgroup>
+                        <optgroup label="CSS">
+                            <option value="styles">styles</option>
+                            <option value="layout">layout</option>
+                            <option value="animation">animation</option>
+                        </optgroup>
+                        <optgroup label="JS">
+                            <option value="syntax">syntax</option>
+                            <option value="programming">programming</option>
+                            <option value="frameworks">frameworks</option>
+                        </optgroup>
+                    </select>
+                    <button type="submit" autofocus value="default">confirm</button>
+                    <button type="submit" value="cancel">cancel</button>
+                </form>
+            </dialog>
+
+            <p><button id="btnshowdialog"> click to open the modal dialog</button></p>
+            <p>output:<br /><span id="output"></span></p>
+        </article>
+
+        <article>
+            <h1 id="template">template</h1>
+            <template id="star-rating-template">
+                <style>
+                    rating {
+                        display: inline-flex;
+                    }
+
+                    input {
+                        appearance: none;
+                        margin: 0;
+                        box-shadow: none;
+                    }
+
+                    input::after {
+                        content: '\2605';
+                        /* solid star */
+                        font-size: 32px;
+                    }
+
+                    rating:hover input:invalid::after,
+                    rating:focus-within input:invalid::after {
+                        color: #888;
+                    }
+
+                    input:invalid::after,
+                    rating:hover input:hover~input:invalid::after,
+                    input:focus~input:invalid::after {
+                        color: #ddd;
+                    }
+
+                    input:valid {
+                        color: orange;
+                    }
+
+                    input:checked~input:not(:checked)::after {
+                        color: #ccc;
+                        content: '\2606';
+                        /* hollow star */
+                    }
+                </style>
+                <form>
+                    <fieldset>
+                        <slot name="star-rating-legend">
+                            <legend>Evaluate your overall skills</legend>
+                        </slot>
+                        <rating>
+                            <input type="radio" name="rating" value="1" aria-label="1 star" required />
+                            <input type="radio" name="rating" value="2" aria-label="2 stars" />
+                            <input type="radio" name="rating" value="3" aria-label="3 stars" />
+                            <input type="radio" name="rating" value="4" aria-label="4 stars" />
+                            <input type="radio" name="rating" value="5" aria-label="5 stars" />
+                        </rating>
+                    </fieldset>
+                    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                </form>
+            </template>
+
+            <star-rating>
+                <legend slot="star-rating-legend">HTML</legend>
+            </star-rating>
+            <star-rating>
+                <legend slot="star-rating-legend">CSS</legend>
+            </star-rating>
+            <star-rating>
+                <legend slot="star-rating-legend">Javascript</legend>
+                <p>Is this text visible?</p>
+            </star-rating>
+            <star-rating>
+                <!-- this examples doesn't have content with a `slot` attribute -->
+                <p>Is this text visible?</p>
+            </star-rating>
+
+        </article>
+
+        <!-- <share-action authors="@estellevw" data-action="click" data-category="web.dev" data-icon="share"
+                data-label="share, twitter" role="button" tabindex="0">
+                <svg aria-label="share" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#shareIcon" />
+                </svg>
+                <span>Share</span>
+            </share-action> -->
+        <aside>
+            <h1 id="tocTitle"><a href="#">html example</a></h1>
+            <nav aria-labelledby="tocTitle">
+                <a href="#elements">elements</a>
+                <a href="#media">media</a>
+                <a href="#form">form</a>
+                <a href="#dialog">dialog</a>
+                <a href="#template">template</a>
+            </nav>
+        </aside>
+    </main>
+
+
+    <footer>
+        <p>&copy;2023 Amy Smith</p>
+    </footer>
+
+    <script src="../js/js example.js" defer></script>
+
+</body>
+
+</html>

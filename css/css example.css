@@ -1,0 +1,472 @@
+@import url(typography.css);
+@layer default,
+setupComponent,
+markers;
+
+@media (max-width: 900px) {
+    @layer setupPage;
+    @layer narrow;
+}
+
+
+@layer default{
+    /* use the alternative box model */
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    img,
+    picture,
+    video {
+        max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    }
+
+    textarea {
+        overflow: auto;
+    }
+    header a, aside a{
+        text-decoration: none;
+    }
+    a{
+        outline: none;
+        padding: 0 0.5rem;
+    }
+    a[href^="http"]{
+        background: url("../assets/icons8-external-link-32.png") right center/1.6rem no-repeat;
+        padding-right: 2rem;
+    }
+
+    a:link {
+        color: steelblue;
+    }
+
+    a:visited {
+        color: mediumpurple;
+    }
+
+    li[aria-current="page"] a{
+        color: darkgray;
+    }
+
+    aside nav a{
+        background: antiquewhite;
+    }
+
+    a:focus, a:hover {
+        text-decoration: none;
+        background: mediumpurple;
+        color: navajowhite;
+        padding-right: 0.5rem;
+    }
+
+    a:hover {
+        background-color: palevioletred;
+    }
+
+    a:active {
+        font-weight: bold;
+        text-decoration: none;
+        color: lightcoral;
+    }
+}
+
+
+@layer narrow {
+    header{
+        height: 10rem;
+    }
+
+    header::before {
+        max-width: 10rem;
+        height: 100%;
+    }
+
+    @media (max-width: 650px){
+        header::before{
+            width: 0;
+        }
+    }
+
+
+    header nav a{
+        padding-top: 0;
+    }
+
+    header ul{
+        flex-flow: column wrap;
+    }
+
+    aside{
+        display: none;
+        width: 0;
+    }
+
+    main {
+        width: 80vw;
+        margin: 0 10%;
+    }
+
+    article{
+        width: 100%;
+    }
+}
+
+@layer setupPage {
+
+
+    body {
+        background: whitesmoke;
+        color: steelblue;
+        margin: 0;
+        min-width: fit-content;
+    }
+
+    main{
+        width: 80vw;
+        margin: 0 20% 0 0;
+    }
+    article{
+        width: 60vw;
+        margin: 2rem auto;
+    }
+
+    aside {
+        display: block;
+        width: 20vw;
+        position: fixed;
+        right: 0;
+        height: 50vh;
+        top: 25vh;
+    }
+
+    aside h1{
+        margin:0;
+    }
+
+    aside nav{
+        height: 80%;
+    }
+
+    aside nav a {
+        padding: 10% 0;
+        margin: 0.5rem;
+    }
+
+
+    .skip-link {
+        position: absolute;
+        top: -3em;
+        background: #fff;
+    }
+
+    .skip-link:focus {
+        top: 0;
+    }
+
+    ol{
+        list-style-type: none;
+        margin: 0;
+    }
+
+    li{
+        display: inline-block;
+    }
+
+    pre:has(> code) {
+        border: 1px solid currentColor;
+        overflow:auto;
+        height: 20rem;
+        min-height: 10rem;
+        max-height: 80vh;
+        resize: vertical;
+    }
+
+    /* [aria-label^="breadcrumb" i] li+li::before {
+        content: "";
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        rotate: 45deg;
+        opacity: .8;
+        position: relative;
+        left: -3rem;
+        top: 3rem;
+    } */
+
+    button{
+        background: steelblue;
+        border: none;
+        padding: 1rem;
+        color: floralwhite;
+        border-radius: 0.5rem;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    header::before {
+        content: "";
+        display: block;
+        width: 20rem;
+        max-width: 20rem;
+        height: 15rem;
+        /* background-image: url("../assets/Pngtree—watercolor\ flap\ cherry\ blossom\ flower_6191395.png");
+        background-origin: border-box;
+        background-position: left center;
+        background-size: contain; */
+        background: url("../assets/Pngtree—watercolor\ flap\ cherry\ blossom\ flower_6191395.png") steelblue left center / cover border-box no-repeat;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 15rem;
+        width: 100%;
+    }
+
+    header nav{
+        height: 100%;
+        flex: 60vw;
+    }
+
+    header ul{
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0;
+        min-width: fit-content;
+        max-width: 20vw;
+        justify-content: flex-end;
+        align-self: center;
+    }
+
+    header nav ol{
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        flex-flow: row nowrap;
+        padding: 0;
+        height: 100%;
+        min-height: fit-content;
+        align-items: center;
+    }
+
+    header nav li {
+        height: 100%;
+        flex: auto;
+    }
+
+    
+    header nav a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    article h1{
+        position: sticky;
+        top: 0;
+        background: steelblue;
+        color: white;
+    }
+
+
+    ruby{
+        float: left;
+        margin-right: 5rem;
+        font-size: 200%;
+    }
+
+    ruby + p + p{
+        clear: both;
+    }
+
+    #media ~ figure img{
+        max-width: 100%;
+    }
+
+
+    #media ~ .floatcontainer{
+        display: flow-root;
+    }
+
+    #media ~ .floatcontainer picture{
+        width: 20vw;
+        float: left;
+        margin-right: 3rem;
+    }
+
+    #media ~ .floatcontainer + *{
+        clear: both;
+    }
+
+    #media ~ .floatcontainer img{
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #media ~ .floatcontainer p{
+        overflow: auto;
+        margin: 0;
+    }
+
+    #media ~ video{
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+    }
+
+    #form ~ form:nth-of-type(1){
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        gap: 5px;
+        grid-auto-rows: minmax(3rem, auto);
+        grid-template-areas:
+            "name nameinput btn"
+            "email emailinput btn";
+    }
+
+    #form ~ form:nth-of-type(1) > label[for$="name" i]{
+        grid-area: name;
+    }
+
+    #form ~ form:nth-of-type(1) > input[id$="name" i]{
+        grid-area: nameinput;
+    }
+
+    #form ~ form:nth-of-type(1) > label[for$="email"]{
+        grid-area: email;
+    }
+
+    #form ~ form:nth-of-type(1) > input[for$="email"]{
+        grid-area: emailinput;
+    }
+
+    #form ~ form:nth-of-type(1) > button{
+        grid-area: btn;
+    }
+
+    #form ~ form:nth-of-type(2){
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-auto-rows: minmax(3rem,auto);
+        gap: 5px;
+    }
+
+    #form ~ form:nth-of-type(2) > input{
+        grid-column: 1/3;
+    }
+
+    #form ~ form:nth-of-type(2) > button{
+        grid-column: -1;
+    }
+
+    #form ~ form:nth-of-type(2) > textarea{
+        grid-column: 1/4;
+        resize: vertical;
+        height: 20rem;
+        min-height: 10rem;
+        max-height: 50vh;
+    }
+
+}
+
+@layer setupComponent {
+    details {
+        border: 1px solid;
+        padding: 0 1rem;
+        background: white;
+    }
+
+    details+details {
+        border-top: none;
+    }
+
+    details[open] {
+        padding-bottom: 1em;
+    }
+
+    summary {
+        padding: 1rem 2em 1rem 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    details {
+        border-radius: 0.5rem;
+        margin: 1rem;
+        transition: 50ms;
+    }
+
+    details[open] {
+        padding-bottom: 1em;
+    }
+
+    summary::before,
+    summary::after {
+        transition: 200ms;
+    }
+}
+
+
+@layer markers {
+    summary {
+        position: relative;
+    }
+
+    summary::marker {
+        content: none;
+    }
+
+    summary::before,
+    summary::after {
+        content: '';
+    }
+
+    summary::before,
+    summary::after {
+        width: .75em;
+        height: 0;
+        border-bottom: 2px solid;
+        position: absolute;
+        top: calc(50% - 1px);
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    summary::after {
+        transform: rotate(90deg);
+        transform-origin: 50% 50%;
+    }
+
+    [open] summary::after {
+        transform: rotate(0deg);
+    }
+}
+
+
+
