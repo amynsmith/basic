@@ -1,0 +1,27 @@
+#animation ~ div{
+    overflow: hidden;
+}
+
+#anime1{
+    transform: perspective(300px) rotateX(25deg);
+    transform-origin: 50% 100%;
+    text-align: justify;
+    height: 20vh;
+    position: relative;
+    top: -5rem;
+}
+
+#anime1 > p{
+    animation: scroll 20s linear infinite;
+    position: relative;
+    top: 100%;
+}
+
+@keyframes scroll{
+    0%{
+        top: 100%;
+    }
+    100%{
+        top: -170%;
+    }
+}

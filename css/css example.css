@@ -1,4 +1,5 @@
-@import url(typography.css);
+@import url(typography.css) layer(typography);
+@import url(animation.css) layer(animation);
 @layer default,
 setupComponent,
 markers;
@@ -161,11 +162,15 @@ markers;
 
     aside nav{
         height: 80%;
+        display: flex;
+        flex-direction: column;
     }
 
     aside nav a {
-        padding: 10% 0;
-        margin: 0.5rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 
@@ -282,6 +287,7 @@ markers;
         height: 100%;
         text-align: center;
         padding-top: 5rem;
+        transition: all 0.5s ease-out;
     }
 
     article h1{
@@ -298,8 +304,10 @@ markers;
         font-size: 200%;
     }
 
-    ruby + p + p{
+    ruby + p::after{
         clear: both;
+        content: "";
+        display: block;
     }
 
     #media ~ figure img{
@@ -317,8 +325,10 @@ markers;
         margin-right: 3rem;
     }
 
-    #media ~ .floatcontainer + *{
+    #media ~ .floatcontainer::after{
         clear: both;
+        content: "";
+        display: block;
     }
 
     #media ~ .floatcontainer img{

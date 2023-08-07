@@ -1,9 +1,11 @@
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 
+
+
 @font-face {
     font-family: 'caviar_dreamsregular';
     src: url('../assets/fonts/caviardreams-webfont.woff2') format('woff2'),
-         url('../assets/fonts/caviardreams-webfont.woff') format('woff');
+        url('../assets/fonts/caviardreams-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -12,7 +14,7 @@
 @font-face {
     font-family: 'ralewayregular';
     src: url('../assets/fonts/raleway-regular-webfont.woff2') format('woff2'),
-         url('../assets/fonts/raleway-regular-webfont.woff') format('woff');
+        url('../assets/fonts/raleway-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -21,7 +23,7 @@
 @font-face {
     font-family: "newsreader";
     src: url("../assets/fonts/Newsreader[opsz\,wght].woff2") format("woff2-variations"),
-         url("../assets/fonts/Newsreader[opsz\,wght].woff") format("woff-variations");
+        url("../assets/fonts/Newsreader[opsz\,wght].woff") format("woff-variations");
     font-weight: 200 300 400 500 600 700 800;
     font-optical-sizing: auto;
     font-style: normal;
@@ -30,7 +32,7 @@
 @font-face {
     font-family: "newsreaderitalic";
     src: url("../assets/fonts/Newsreader-Italic[opsz\,wght].woff2") format("woff2-variations"),
-         url("../assets/fonts/Newsreader-Italic[opsz\,wght].woff") format("woff-variations");
+        url("../assets/fonts/Newsreader-Italic[opsz\,wght].woff") format("woff-variations");
     font-weight: 200 300 400 500 600 700 800;
     font-optical-sizing: auto;
     font-style: italic;
@@ -41,23 +43,28 @@
     line-height: 1.75;
 }
 
-body{
+body {
     font-family: "ralewayregular", sans-serif;
     font-size: 1.6rem;
 }
 
-code { font-family: 'Fira Code', monospace; }
-
-@supports (font-variation-settings: normal) {
-  code { font-family: 'Fira Code VF', monospace; }
+code {
+    font-family: 'Fira Code', monospace;
 }
 
-header nav{
+@supports (font-variation-settings: normal) {
+    code {
+        font-family: 'Fira Code VF', monospace;
+    }
+}
+
+header nav {
     font-family: "caviar_dreamsregular", sans-serif;
     font-size: calc(2rem + 1cqw);
 }
 
-header ul a, aside *{
+header ul a,
+aside * {
     font-size: calc(1.6rem + 0.1cqw);
     display: block;
     text-align: center;
@@ -69,14 +76,14 @@ h1#tocTitle {
     text-transform: uppercase;
 }
 
-h1{
+h1 {
     font-family: "newsreader", serif;
     font-size: 3rem;
     font-weight: 400;
     font-optical-sizing: auto;
 }
 
-h2{
+h2 {
     font-family: "newsreaderitalic", serif;
     font-size: 3rem;
     font-weight: 300;
