@@ -83,11 +83,11 @@ input.addEventListener("change", () => {
         preview.appendChild(p);
     } else {
         const file = input.files[0];
-        if (! validfiletype(file)) {
-            const p=document.createElement("p");
-            p.textContent="please select image";
+        if (!validfiletype(file)) {
+            const p = document.createElement("p");
+            p.textContent = "please select image";
             preview.appendChild(p);
-         }
+        }
         else {
             const img = document.createElement("img");
             img.src = URL.createObjectURL(file);
@@ -95,3 +95,32 @@ input.addEventListener("change", () => {
         }
     }
 });
+
+// animation related
+stopbtn1 = document.querySelector("#stop1");
+resumebtn1 = document.querySelector("#resume1");
+paras = document.querySelectorAll("#anime1 > p");
+paras.forEach(p => {
+    p.className = "scroll";
+});
+
+stopbtn1.addEventListener("click", () => {
+    paras.forEach(p => {
+        p.addEventListener("animationiteration", () => {
+            p.className = "stopped";
+        })
+    })
+})
+
+resumebtn1.addEventListener("click", () => {
+    paras.forEach(p => {
+        p.className = "stopped";
+    });
+    requestAnimationFrame((time) => {
+        requestAnimationFrame((time) => {
+            paras.forEach(p => {
+                p.className = "scroll";
+            });
+        })
+    })
+})

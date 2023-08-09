@@ -11,10 +11,18 @@
     top: -5rem;
 }
 
-#anime1 > p{
-    animation: scroll 20s linear infinite;
+#anime1 > p.scroll{
+    /* animation: scroll 20s linear infinite; */
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     position: relative;
     top: 100%;
+}
+
+.stopped{
+    animation-name: none;
 }
 
 @keyframes scroll{
@@ -23,5 +31,108 @@
     }
     100%{
         top: -170%;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    #anime1 > p.scroll{
+        animation-play-state: paused;
+    }
+}
+
+#anime2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    max-width: 100%;
+    grid-gap: 1rem;
+}
+
+#anime2 .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    height: fit-content;
+}
+
+#anime2 .card:focus,
+#anime2 .card:focus-within,
+#anime2 .card:hover{
+    transform: rotateY(180deg);
+}
+
+#anime2 .front{
+    z-index: 1;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#anime2 .back{
+    transform: rotateY(180deg);
+}
+
+/* reduce motion */
+#anime2 .reduce-motion.card:focus,
+#anime2 .reduce-motion.card:focus-within,
+#anime2 .reduce-motion.card:hover{
+    transform: none;
+}
+
+#anime2 .reduce-motion .back{
+    opacity: 0;
+    z-index: 2;
+    transition-duration: 0.6s;
+    transform: none;
+}
+
+#anime2 .reduce-motion.card:focus .back,
+#anime2 .reduce-motion.card:focus-within .back,
+#anime2 .reduce-motion.card:hover .back{
+    opacity: 1;
+    transform: none;
+}
+
+/* shrink and grow */
+#anime2 .shrink-grow.card:focus .front,
+#anime2 .shrink-grow.card:focus-within .front,
+#anime2 .shrink-grow.card:hover .front{
+    animation: shrink 1s ease-out forwards;
+}
+
+#anime2 .shrink-grow.card .front{
+    animation: grow 1s ease-out forwards;
+}
+
+#anime2 .shrink-grow.card .back{
+    transform: none;
+}
+
+#anime2 .shrink-grow.card:focus,
+#anime2 .shrink-grow.card:focus-within,
+#anime2 .shrink-grow.card:hover{
+    transform: none;
+}
+
+
+@keyframes grow{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+@keyframes shrink {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
     }
 }
