@@ -2,11 +2,11 @@
 
 - [ ] internet
 
-- [ ] html
+- [X] html
 
-- [ ] css
+- [X] css
 
-- [ ] javascript
+- [X] javascript
 
 - [X] repo-hosting-services (github)
 
