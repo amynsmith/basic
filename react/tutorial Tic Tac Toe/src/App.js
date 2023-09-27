@@ -10,7 +10,7 @@ function Square({ value, onSquareClick }) {
 
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares)|| squares[i]) {
       return;
     }
     const nextSquares = squares.slice();
@@ -26,28 +26,26 @@ function Board({ xIsNext, squares, onPlay }) {
   let status;
   if (winner) {
     status = 'Winner: ' + winner;
-  } else {
+  } else if(squares.every((a)=>a)) {
+    status = "draw";
+  }
+    else{
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+  }
+
+  let board=[];
+  for(let i=0;i<3;i++){
+    let row=[];
+    for(let j=i*3; j<i*3+3; j++){
+      row.push(<Square value={squares[j]} onSquareClick={() => handleClick(j)} />);
+    }
+    board.push(<div className="board-row">{row}</div>)
   }
 
   return (
     <>
-      <div className="status">{status}</div>
-      <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-      </div>
+      <div className="status">{status}</div>   
+      {board} 
     </>
   );
 }
@@ -55,6 +53,7 @@ function Board({ xIsNext, squares, onPlay }) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
+  const [toggleSort,setToggleSort] =useState(true);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -68,12 +67,42 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
+  function getLoc(history,move){
+    let index;
+    for(let n=0;n<history[move].length;n++){
+      if(history[move][n]===history[move-1][n]) continue
+      index=n
+    }
+    let i=Math.floor(index/3);
+    let j=index-i*3;
+    return [i,j]
+  }
+
+  console.log(history)
   const moves = history.map((squares, move) => {
     let description;
+    let i,j;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      [i,j]=getLoc(history,move)
+      console.log(i,j)
+      description = 'Go to move #' + move +`(${i},${j})`;
     } else {
       description = 'Go to game start';
+    }
+    if (move === history.length-1){
+      if (move>0){
+        [i,j]=getLoc(history,move)
+        console.log(i,j)
+        description = 'You are at move #'+move +`(${i},${j})`;
+      }else{
+        description = 'You are at move #'+move;
+      }
+      
+      return(
+        <li key={move}>
+          {description}
+        </li>
+      )
     }
     return (
       <li key={move}>
@@ -88,7 +117,10 @@ export default function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <button onClick={()=>setToggleSort(!toggleSort)}>toggle sort</button>
+        <ol>
+        {toggleSort ? moves : moves.toReversed()}
+        </ol>
       </div>
     </div>
   );
@@ -108,8 +140,19 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      lines[i].map(a=>highlightSquare(a))
       return squares[a];
     }
+    lines[i].map(a=>highlightSquare(a,false))
   }
   return null;
+}
+
+function highlightSquare(index, highlight=true){
+  let i=Math.floor(index/3);
+  let j=index-i*3;
+  let row = document.querySelectorAll("div.board-row")[i];
+  if (!row) return;
+  let square=row.querySelectorAll("button.square")[j];
+  square.style.backgroundColor=highlight?"gold":"white";
 }
